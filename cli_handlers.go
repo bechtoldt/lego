@@ -13,6 +13,7 @@ import (
 	"strings"
 	"time"
 
+	"github.com/bechtoldt/lego/providers/dns/internetx"
 	"github.com/urfave/cli"
 	"github.com/xenolf/lego/acme"
 	"github.com/xenolf/lego/providers/dns/auroradns"
@@ -148,6 +149,8 @@ func setup(c *cli.Context) (*Configuration, *Account, *acme.Client) {
 			provider, err = gandi.NewDNSProvider()
 		case "gcloud":
 			provider, err = googlecloud.NewDNSProvider()
+		case "internetx":
+			provider, err = internetx.NewDNSProvider()
 		case "linode":
 			provider, err = linode.NewDNSProvider()
 		case "manual":
